@@ -5,7 +5,7 @@
 
 ## Content
 
-<div align="center"><strong>The files that contain the juice of the app are (in order of importance):</strong></div>
+<div>The files that contain the juice of the app are (in order of importance):</div><br>
 
 <ol>
   <li>app/controller/url_tag_lists_controller.rb</li>
