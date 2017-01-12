@@ -5,13 +5,17 @@
 
 ## Content
 
-<div>The files that contain the juice of the app are (in order of importance):</div><br>
+<div>The files that contain the juice of the app are (in order of relevance):</div><br>
 
 <ol>
   <li>app/controller/url_tag_lists_controller.rb</li>
   <li>app/views/url_tag_lists/search.html.erb</li>
   <li>config/routes.rb</li>
+  <li>db/migrate/20170111230240_create_url_tag_lists.rb</li>
 </ol>
+
+## Demo
+<a href="https://rails-html-tags-scraper.herokuapp.com/">https://rails-html-tags-scraper.herokuapp.com/</a>
 
 ## License
 
