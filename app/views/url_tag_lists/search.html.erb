@@ -1,0 +1,14 @@
+<h1><b>Search Url Tags</b></h1>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:url, "Enter a valid URL (http will be assumed if no protocol is indicated):") %>
+  <%= text_field_tag(:url) %>
+  <%= submit_tag("Go") %>
+<% end %>
+
+<% if @url_tag_list %>
+  <h1>Results</h1>
+
+  <h1><%= @url_tag_list.url %> tag list:</h1>
+  <h3><%= @url_tag_list.tags %></h3>
+<% end %>

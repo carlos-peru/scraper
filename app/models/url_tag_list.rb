@@ -1,0 +1,2 @@
+class UrlTagList < ApplicationRecord
+end
