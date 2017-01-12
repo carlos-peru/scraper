@@ -10,13 +10,13 @@ class UrlTagListsController < ApplicationController
 
       if is_url_valid(@url)
 
-        # Check if url has been processed already
+        # Check in the database if url has been processed already
         @url_tag_list = UrlTagList.where(url: @url).take
-        # If result is older than a week, then we do a new search
         # This is arbitrary, so 1.minute.ago, 10.seconds.ago or any other timeframe could have been used
         cache_timeout = 1.week.ago
         # NOTE: Remember that the smaller the value of the time, the older it is.
         if @url_tag_list.nil? || @url_tag_list.updated_at < cache_timeout
+          # If result is older than a week, then we do a new request
           uri = URI(@url)
           begin
             response = Net::HTTP.get(uri)
