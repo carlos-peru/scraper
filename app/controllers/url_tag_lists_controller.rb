@@ -16,7 +16,8 @@ class UrlTagListsController < ApplicationController
         cache_timeout = 1.week.ago
         # NOTE: Remember that the smaller the value of the time, the older it is.
         if @url_tag_list.nil? || @url_tag_list.updated_at < cache_timeout
-          # If result is older than a week, then we do a new request
+          # If no result or result is older than a week,
+          # then we do a new request
           uri = URI(@url)
           begin
             response = Net::HTTP.get(uri)
@@ -24,7 +25,8 @@ class UrlTagListsController < ApplicationController
             # Create empty tag list string
             tag_list = ""
             # This is equivalent to traversing the nodes recursively
-            # For more information: http://www.rubydoc.info/github/sparklemotion/nokogiri/Nokogiri/XML/Node#traverse-instance_method
+            # For more information:
+            # http://www.rubydoc.info/github/sparklemotion/nokogiri/Nokogiri/XML/Node#traverse-instance_method
             html.traverse do |node|
               if Nokogiri::XML::Element == node.class
                 # Append tag
