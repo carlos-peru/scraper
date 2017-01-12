@@ -6,9 +6,13 @@
   <%= submit_tag("Go") %>
 <% end %>
 
-<% if @url_tag_list %>
+<% if @url_tag_list && !@url_tag_list.tags.blank? %>
   <h1>Results</h1>
 
   <h1><%= @url_tag_list.url %> tag list:</h1>
   <h3><%= @url_tag_list.tags %></h3>
+<% else %>
+  <h1>Empty results <%= @url %></h1>
+  <p>Make sure the url is using the right domain or subdomain as well as the right protocol (http vs https).</p>
+  <p>For example, http://www.reddit.com and https://reddit.com will return empty results, but https://www.reddit.com will get the expected content.</p>
 <% end %>
